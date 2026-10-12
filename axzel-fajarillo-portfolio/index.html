@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Architecture Student — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="subjects.css" />
+  </head>
+  <body>
+    <div class="page-noise"></div>
+    <header class="nav">
+      <a class="brand" href="#top" data-field="brand">AM<span>•</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a>
+      </nav>
+      <button class="edit-button" id="editButton" type="button">Edit portfolio <span>↗</span></button>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <p class="eyebrow">Architecture student portfolio <span>—</span> <span data-field="location">School of Architecture</span></p>
+        <h1>Ideas for spaces<br />made <em>visible.</em></h1>
+        <div class="hero-bottom">
+          <p class="intro" data-field="intro">I’m Alex Morgan — a multidisciplinary creative turning thoughtful ideas into memorable, useful experiences.</p>
+          <a class="round-link" href="#work" aria-label="See selected work">↓</a>
+        </div>
+        <div class="marquee" aria-hidden="true"><div>DESIGN <i>✦</i> CODE <i>✦</i> STRATEGY <i>✦</i> DESIGN <i>✦</i> CODE <i>✦</i> STRATEGY <i>✦</i></div></div>
+      </section>
+
+      <section class="projects" id="work">
+        <div class="section-head"><p class="eyebrow">01 / Selected academic work</p><p>Semester portfolio</p></div>
+        <div class="project-grid" id="projectGrid"></div>
+      </section>
+
+      <section class="about" id="about">
+        <p class="eyebrow">02 / About my practice</p>
+        <div>
+          <h2>Architecture begins with <em>people,</em><br />place, and purpose.</h2>
+          <p data-field="about">With a background in design and a soft spot for expressive details, I help ambitious people and brands find their clearest, most magnetic voice online.</p>
+          <a href="#contact" class="text-link">More about me <span>→</span></a>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <p class="eyebrow">03 / Let’s connect</p>
+        <h2>Let’s shape<br />what’s <em>next.</em></h2>
+        <a class="email" data-field="email" href="mailto:hello@alexmorgan.studio">hello@alexmorgan.studio <span>↗</span></a>
+      </section>
+    </main>
+
+    <footer><span data-field="footer">© 2025 Alex Morgan</span><span>Built with care <i>✦</i></span><a href="#top">Back to top ↑</a></footer>
+
+    <dialog id="editor">
+      <form method="dialog" id="editorForm">
+        <div class="modal-head"><div><p class="eyebrow">Your portfolio</p><h2>Edit content</h2></div><button class="close" value="cancel" aria-label="Close editor">×</button></div>
+        <p class="modal-note">Changes save in this browser instantly. You can return here any time to update your site.</p>
+        <div class="fields">
+          <label>Name / logo initials<input name="brand" placeholder="AM•" /></label>
+          <label>Location<input name="location" /></label>
+          <label>Short introduction<textarea name="intro" rows="3"></textarea></label>
+          <label>About you<textarea name="about" rows="4"></textarea></label>
+          <label>Email address<input name="email" type="email" /></label>
+          <label>Footer line<input name="footer" /></label>
+        </div>
+        <div class="projects-editor"><p class="eyebrow">Projects</p><div id="projectFields"></div></div>
+        <div class="modal-actions"><button type="button" class="reset" id="resetButton">Reset demo</button><button class="save" value="default">Save changes</button></div>
+      </form>
+    </dialog>
+    <dialog id="subjectDialog" class="subject-dialog">
+      <div class="subject-panel">
+        <div class="modal-head"><div><p class="eyebrow">Subject folder</p><h2 id="subjectTitle">TOA</h2></div><button class="close" id="subjectClose" type="button" aria-label="Close subject">×</button></div>
+        <p class="modal-note">Add your plates and projects for this subject. Choose an image or paste one directly into the box below.</p>
+        <div id="plateGallery" class="plate-gallery"></div>
+        <form id="plateForm" class="plate-form">
+          <label>Project / plate title<input id="plateName" required placeholder="Example: Plate 01 — Site analysis" /></label>
+          <label class="paste-zone" id="pasteZone">Paste an image here, or choose a file<input id="plateImage" type="file" accept="image/*" /></label>
+          <p id="imageStatus" class="image-status">No image selected yet.</p>
+          <button class="save" type="submit">Add to this subject</button>
+        </form>
+      </div>
+    </dialog>
+    <script src="app.js"></script>
+  </body>
+</html>
